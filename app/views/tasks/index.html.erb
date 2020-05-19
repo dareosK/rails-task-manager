@@ -1,0 +1,7 @@
+<h2>To Do:</h2>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <%= check_box("task", task.completed, {checked: task.completed}) %><li><%= task.title %></li>
+  <% end %>
+</ul>
