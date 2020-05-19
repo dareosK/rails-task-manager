@@ -12,17 +12,28 @@ class TasksController < ApplicationController
   end
 
 def create
-    @task = Task.new(restart_params)
-    if @task.save
-      redirect_to tasks_path
-    else
-      render :new
-    end
+  @task = Task.new(restart_params)
+  if @task.save
+    redirect_to tasks_path
+  else
+    render :new
   end
+end
 
-  private
+def edit
+  @task = Task.find(params[:id])
+end
 
-  def restart_params
-    params.require(:task).permit(:title, :details, :completed)
-  end
+def update
+  @task = Task.find(params[:id])
+  @task.update(params[:task])
+   # Will raise ActiveModel::ForbiddenAttributesError
+  redirect_to task_path(@task)
+end
+
+private
+
+def restart_params
+  params.require(:task).permit(:title, :details, :completed)
+end
 end

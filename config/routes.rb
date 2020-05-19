@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "tasks/new", to: "tasks#new" # The `new` route needs to be *before* `show` route.
   get 'tasks/:id', to: 'tasks#show', as: "task"
   post "tasks", to: "tasks#create"
+  get "tasks/:id/edit", to: "tasks#edit"
+  patch "tasks/:id", to: "tasks#update"
 end
