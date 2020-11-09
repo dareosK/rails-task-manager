@@ -5,21 +5,19 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @task = Task.new
   end
 
   def create
-    task = Task.new(tasks_params)
+    task = Task.new(task_params)
     task.save
     redirect_to tasks_path
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @task.update(task_params)
@@ -40,5 +38,4 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title, :details, :completed)
   end
-
 end
