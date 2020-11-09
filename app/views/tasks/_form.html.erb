@@ -10,6 +10,9 @@
     <%= f.text_area :details, class: 'form-control' %>
   </div>
 
+  <!-- new_record?()
+  Returns true if this object hasn't been saved yet (a record for the object
+  doesn't exist in the database yet) otherwise, returns false. -->
   <% unless f.object.new_record? %>
     <div class="checkbox">
       <label>
